@@ -1,6 +1,7 @@
 import random
 from player import Player
 
+
 class AIPlayer(Player):
     def decide_action(self, opponent):
         """AI decides to either tap or split based on the current game state."""
@@ -10,15 +11,15 @@ class AIPlayer(Player):
                 for their_hand in range(2):
                     if opponent.hands[their_hand] > 0:
                         if self.hands[my_hand] + opponent.hands[their_hand] >= 5:
-                            return 'tap'  # Tap to knock out opponent's hand
+                            return "tap"  # Tap to knock out opponent's hand
 
         # Otherwise, if the AI has a dangerous hand (e.g., 4 points), it should split
         for hand in range(2):
             if self.hands[hand] == 4:
-                return 'split'
+                return "split"
 
         # As a fallback, the AI will tap if it can make progress
-        return 'tap'
+        return "tap"
 
     def choose_hand_to_tap(self, opponent):
         """AI chooses which hand to use for tapping and which opponent hand to tap."""
